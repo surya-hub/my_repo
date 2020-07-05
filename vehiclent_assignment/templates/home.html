@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+{% block content%}
+    {% for i in messages %}
+            <p>{{ i }}</p>
+        {% endfor %}
+    <div class="jumbotron">
+    <h1 class="text-center">Welcome To VEHICLENT</h1>
+    </div>
+{% endblock %}
+
+</body>
+</html>

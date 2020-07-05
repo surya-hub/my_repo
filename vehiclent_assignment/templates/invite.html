@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+<html>
+<head>
+    <title>Invite</title>
+</head>
+<body>
+{% block content %}
+    <div class="container-fluid">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h2 class="text-center e"><div class="blink_me ">Invite Now !!</div></h2><br>
+                    {% for i in messages %}
+                        <p id="fl">{{ i }}</p>
+                    {% endfor %}
+            <div class="jumbotron">
+                <div class="Container-fluid">
+                      <div class="row">
+                          <div class="offset-md-3 col-md-6">
+                              <form method="POST">
+                                {% csrf_token %}
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    {{ form.day|as_crispy_field }}
+                                  </div>
+                                </div>
+                                <div class='row'>
+                                  <div class="col-md-12">
+                                    {{ form.start_time|as_crispy_field }}
+                                  </div>
+                                </div>
+
+
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    {{ form.end_time|as_crispy_field }}
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    {{ form.User|as_crispy_field }}
+                                  </div>
+                                </div>
+                                  <div class="row">
+                                  <div class="col-md-12">
+                                    <input type="submit" class="btn btn-outline-success btn-lg btn-block">
+                                  </div>
+                                </div>
+
+                              </form>
+                          </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+</body>
+</html>

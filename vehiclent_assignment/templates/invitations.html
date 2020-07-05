@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+<html>
+<head>
+    <title>Invitations</title>
+</head>
+<body>
+{% block content %}
+    {{ invi }}
+    <div class="jumbotron">
+        <div class="container-fluid">
+        <div class="row">
+            <div class="offset-md-2 col-lg-8">
+                {% if invite %}
+                    <table class="table table-bordered text-center">
+                   <thead class="text-white bg-secondary">
+                   <tr>
+                       <th>Title</th>
+                       <th>Decription</th>
+                       <th>Start Time</th>
+                       <th>End Time</th>
+
+                   </tr>
+                   </thead>
+                    <tbody>
+                        {% for i in invite %}
+                        <tr>
+                            <td>{{ i.title }}</td>
+                            <td>{{ i.description }}</td>
+                            <td>{{ i.start_time }}</td>
+                            <td>{{ i.end_time }}</td>
+
+                        </tr>{% endfor %}
+                     {% else %}
+                        <h3>No Invitations</h3>
+
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+
+
+    </div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <h2><a class="navbar-brand" href="/home/">VEHICLENT ASSIGHNMENT</a></h2>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-danger text-white" href="/invitations/">Invitations</a>
+                </li>
+                <li class="nav-item item">
+                    <a class="nav-link btn btn-outline-primary text-white b" href="{% url 'invite_event' %}">Invite Users</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto" >
+                {% if request.user.is_active %}
+                    <li class="nav-item text-capitalize text-white" id="l">
+                    {{ request.user.username }}
+                     </li>
+                <li class="nav-item" id="l">
+                    <a class="btn btn-warning text-white" href="{% url 'logout' %}">Logout</a>
+                </li>
+
+                {% else %}
+                    <li class="nav-item active" id="l">
+                        <a class="btn btn-success text-white" href="{% url 'register' %}">Sign Up</a>
+                    </li>
+                    <li class="nav-item" id="l">
+                        <a class="btn btn-primary text-white" href="{% url 'login' %}">Login</a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </nav>
+{#    <a class="btn btn-success" id="s" href="{% url 'admin_login' %}">Admin Login</a>#}
+</nav>
+{% endblock %}
+</body>
+</html>
